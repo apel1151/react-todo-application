@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
 import EditTask from '../modals/EditTask';
+import DeleteAlert from '../modals/DeleteAlert';
 
 const Card = ({taskObj, index, deleteTask, updateListArray}) => {
 
     const [modal, setModal] = useState(false);
-
+    const [openModal, setOpenModal] = useState(false);
 
     const colors = [
         {
@@ -34,6 +35,8 @@ const Card = ({taskObj, index, deleteTask, updateListArray}) => {
         setModal(!modal);
     }
 
+    const toggle2 = () => setOpenModal(!openModal);
+
     const updateTask = (obj) =>{
         updateListArray(obj, index);
     }
@@ -52,10 +55,11 @@ const Card = ({taskObj, index, deleteTask, updateListArray}) => {
 
                 <div style={{"position": "absolute", "right" : "20px", "bottom" : "20px"}}>
                     <i class = "far fa-edit" style={{"color" : "#5DC250", "marginRight": "15px", "cursor": "pointer"}} onClick={() => setModal(true)}></i>
-                    <i class="fas fa-trash-alt " style = {{"color" : "#5DC250", "cursor": "pointer"}} onClick={handleDelete } ></i>
+                    <i class="fas fa-trash-alt " style = {{"color" : "#5DC250", "cursor": "pointer"}} onClick={toggle2}></i>
                 </div>
             </div>
             <EditTask modal={modal} toggle={toggle} updateTask={updateTask} taskObj={taskObj}/>
+            <DeleteAlert openModal={openModal} toggle2={toggle2} handleDelete={handleDelete}></DeleteAlert>
         </div>
         
     );
