@@ -44,6 +44,7 @@ const TodoList = () => {
          localStorage.setItem("taskList", JSON.stringify(temList)); // setting object to the browser localStorage
          setTaskList(temList);  // setting updated tempList to setTaskList
          setModal(false) // after setting the object modal is going to close and showing object value
+         
     }
     return (
        <>

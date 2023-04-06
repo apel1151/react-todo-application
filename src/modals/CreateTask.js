@@ -20,6 +20,8 @@ const CreateTask = ({modal, toggle, save}) => {
         taskObj["name"] = taskName;
         taskObj["description"] = description;
         save(taskObj);
+        setTaskName("");
+        setDescription("");
     }
  
     return (   
