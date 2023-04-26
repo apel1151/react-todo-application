@@ -55,7 +55,7 @@ const TodoList = () => {
 
             <div className="task-container"> 
                     {
-                        taskList.map((obj, index) => <Card taskObj = {obj} index = {index} deleteTask= {deleteTask} updateListArray={updateListArray}  />)
+                        taskList.map((obj, index) => <Card taskObj = {obj} index = {index} deleteTask= {deleteTask} updateListArray={updateListArray}/>)
                     }
             </div>
           

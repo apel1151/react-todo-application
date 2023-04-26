@@ -4,6 +4,7 @@ import {Button, Modal, ModalHeader, ModalBody, ModalFooter} from 'reactstrap';
 const CreateTask = ({modal, toggle, save}) => {
     const [taskName, setTaskName] = useState('');
     const [description, setDescription] = useState('');
+    // const [giveInfo, setGiveInfo] = useState('');
     
     const handleChange = (e) =>{
         const {name, value} = e.target
@@ -16,10 +17,21 @@ const CreateTask = ({modal, toggle, save}) => {
     }
       //creating the object
     const handleSave = () =>{
+
         let taskObj = {};
         taskObj["name"] = taskName;
         taskObj["description"] = description;
-        save(taskObj);
+
+        if(taskName === "" || description === ""){
+            alert("PLease give your information!")
+            console.log(taskName, description)
+        }else{
+            save(taskObj);
+            // console.log(taskName, description)
+        }
+
+        // save(taskObj);
+        
         setTaskName("");
         setDescription("");
     }
